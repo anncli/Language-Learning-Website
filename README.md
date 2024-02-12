@@ -49,6 +49,39 @@ Or you can run with a specific port you want
 yarn dev --port=3000
 ```
 
-This will start the development server. You can now open your browser and navigate to `http://localhost:3000` to view your React app. or `http://localhost:<port the server provided>`  
+This will start the development server. You can now open your browser and navigate to `http://localhost:3000` to view your React app. or `http://localhost:<port the server provided>` 
+
+
+
+## Backend 
+This is a basic README for setting up the backend using Yarn.
+
+## Navigate to the backend Directory
+
+Navigate into your newly created app directory:
+
+```bash
+cd backend
+```
+## Installing Dependencies
+
+Before running the app, you'll need to install its dependencies. You can do this by running:
+
+```bash
+yarn 
+```
+## Building the app
+```
+yarn build
+```
+
+## Running the App
+
+Finally, you can run the React Vite app using the following command:
+
+```bash
+yarn dev
+```
+This will start the development server. You can now open your browser and navigate to `http://localhost:4000` to view your the APIs 
 
 Happy coding!
