@@ -74,6 +74,11 @@ yarn
 ```
 yarn build
 ```
+## Generate prisma migrations
+Use this in case you have done some changes on the schema. Otherwise, not really necessary to run it.
+```
+prisma migrate dev --name <name_of_the_migration>
+``` 
 
 ## Running the App
 
