@@ -12,7 +12,14 @@ datasource db {
 
 // TODO: to change this later
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+  id    String @id  @default(uuid())
+  email String @unique
+  firstName  String
+  lastName String
+  nationality String
+  password String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
 }
