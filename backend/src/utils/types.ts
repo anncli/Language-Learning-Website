@@ -5,7 +5,8 @@ export type TAuthCredentials = {
 
 
 export interface IFormattedResponse<T> {
-    data: T
+    data?: T
     statusCode?: number // optional
     status: "success" | "error"
+    message?: string
 }

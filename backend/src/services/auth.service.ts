@@ -12,6 +12,9 @@ export async function login(
   try {
     // check if user exists
     const existingUser = await getUserByEmail(user.email)
+    if (!existingUser) {
+      throw new ErrorHandler("User does not exist", 400)
+    }
     const passwordMatch = await bcrypt.compare(
       user.password,
       existingUser!.password
@@ -26,21 +29,29 @@ export async function login(
     } else {
       return {
         status: "error",
-        data: "Invalid credentials"
+        message: "Invalid credentials"
       }
     }
   } catch (e: unknown) {
     return {
       status: "error",
-      data: (e as ErrorHandler).message
+      message: (e as ErrorHandler).message
     }
   }
 }
 
 export async function getLoggedIn(
-  token: string
+  tkn: string
 ): Promise<IFormattedResponse<User | string>> {
-  const decoded = verifyToken(token) as User
+  const token = tkn.split(' ')
+  if (token[0] !== "Bearer") {
+    return {
+      status: "error",
+      statusCode: 401,
+      data: "Invalid token" 
+    }
+  }
+  const decoded = verifyToken(token[1]) as User
   if (decoded.email) {
     const user = await getUserByEmail(decoded.email)
     if (user) {

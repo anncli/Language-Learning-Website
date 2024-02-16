@@ -15,9 +15,9 @@ router.post("/sign-in", async(req: Request, res: Response) => {
   return res.send(user)
 })
 
-router.get("/profile", (req: Request, res: Response) => {
+router.get("/profile", async (req: Request, res: Response) => {
   const token = req.headers.authorization as string
-  const user = getLoggedIn(token)
+  const user = await getLoggedIn(token)
   return res.send(user)
 })
 
