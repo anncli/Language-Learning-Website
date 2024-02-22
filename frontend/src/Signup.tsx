@@ -17,7 +17,7 @@ function Signup() {
             password: password
         }
         try {
-            const response = await axios.post('/api/v1/auth/signup', user);
+            const response = await axios.post('http://localhost:4000/api/v1/auth/signup', user);
             console.log('User created:', response.data);
           } catch (error) {
             console.error('Error creating user:', error);
