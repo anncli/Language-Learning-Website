@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 function Home() {
     return (
@@ -8,7 +9,7 @@ function Home() {
                 </div>
                 <div className='text-beige mt-5 mr-5 space-x-3'>
                     <button>log in</button>
-                    <button className="bg-light-green text-blue text-lg p-2 rounded-lg">sign up</button>
+                    <Link to="/signup" className="bg-light-green text-blue text-lg p-2 rounded-lg">sign up</Link>
                 </div>
                 
             </div>
