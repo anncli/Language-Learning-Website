@@ -8,6 +8,7 @@ export default {
     extend: {
       backgroundImage: {
         'signup': "url('/src/assets/signup.png')",
+        'home': "url('/src/assets/home.png')",
       }
     },
     colors: {
@@ -16,6 +17,7 @@ export default {
       'brown':'#994043',
       'light-green':'#DBDFAC',
       'beige':'#F4EBD9',
+      'white' :'#FFFFFF'
     }
   },
   plugins: [],

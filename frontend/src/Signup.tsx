@@ -30,8 +30,8 @@ function Signup() {
             <div className='flex justify-between'>
                 <div className='bg-light-green text-blue text-lg p-2 mt-5 ml-5'>LLW</div>
                 <div className='text-beige mt-5 mr-5 space-x-3'>
-                    <span>home</span>
-                    <span>log in</span>
+                    <button>home</button>
+                    <button>log in</button>
                 </div>
             </div>
             <div className="h-screen flex items-center justify-center">
