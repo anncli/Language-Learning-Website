@@ -8,7 +8,7 @@ function Home() {
                     LLW
                 </div>
                 <div className='text-beige mt-5 mr-5 space-x-3'>
-                    <button>log in</button>
+                    <Link to="/login">log in</Link>
                     <Link to="/signup" className="bg-light-green text-blue text-lg p-2 rounded-lg">sign up</Link>
                 </div>
                 
