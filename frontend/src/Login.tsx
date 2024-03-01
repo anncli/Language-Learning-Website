@@ -1,20 +1,25 @@
 import { useState } from 'react'
 import axios from 'axios'
+import { Link,useNavigate } from 'react-router-dom'
 function Login() {
     const [password, setPassword] = useState('')
     const [email, setEmail] = useState('')
+    const navigate = useNavigate()
     
-    const handleSignup = async (e: React.FormEvent<HTMLFormElement>) => {
+    const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         const user = {
             email: email,
             password: password
         }
         try {
-            const response = await axios.post('http://localhost:4000/api/v1/auth/signup', user);
-            console.log('User created:', response.data);
+            const response = await axios.post('http://localhost:4000/api/v1/auth/sign-in', user);
+            console.log()
+            if (response.status == 200) {
+                navigate("../landing")
+            }
           } catch (error) {
-            console.error('Error creating user:', error);
+            console.error('Error signing in:', error);
           }
         
     }
@@ -24,12 +29,12 @@ function Login() {
             <div className='flex justify-between'>
                 <div className='bg-light-green text-blue text-lg p-2 mt-5 ml-5'>LLW</div>
                 <div className='text-beige mt-5 mr-5 space-x-3'>
-                    <button>home</button>
-                    <button>log in</button>
+                    <Link to="../">home</Link>
+                    <Link to="../signup">sign up</Link>
                 </div>
             </div>
             <div className="h-screen flex items-center justify-center">
-                <form onSubmit={handleSignup} className='space-y-4'>
+                <form onSubmit={handleLogin} className='space-y-4'>
                 <div className='flex justify-center font-bold text-5xl text-light-green'>LOGIN</div>
                     
                     <div>

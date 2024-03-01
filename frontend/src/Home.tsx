@@ -14,7 +14,7 @@ function Home() {
                 
             </div>
             <div className="items-center gap-4 m-auto flex-col flex">
-                <h1 className="text-light-green text-7xl">WEBSITE NAME</h1>
+                <h1 className="text-light-green text-7xl">LLW</h1>
                 <div className="text-white bg-brown p-4 rounded-full text-lg">start your learning journey!</div>
             </div>
         </div>

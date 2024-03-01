@@ -1,11 +1,14 @@
 import { useState } from 'react'
 import axios from 'axios'
+import { Link, useNavigate } from 'react-router-dom'
 function Signup() {
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [nationality, setNationality] = useState('')
     const [password, setPassword] = useState('')
     const [email, setEmail] = useState('')
+    
+    const navigate = useNavigate();
     
     const handleSignup = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -18,7 +21,9 @@ function Signup() {
         }
         try {
             const response = await axios.post('http://localhost:4000/api/v1/auth/signup', user);
-            console.log('User created:', response.data);
+            if (response.status == 201) {
+                navigate("../login")
+            }
           } catch (error) {
             console.error('Error creating user:', error);
           }
@@ -30,8 +35,8 @@ function Signup() {
             <div className='flex justify-between'>
                 <div className='bg-light-green text-blue text-lg p-2 mt-5 ml-5'>LLW</div>
                 <div className='text-beige mt-5 mr-5 space-x-3'>
-                    <button>home</button>
-                    <button>log in</button>
+                    <Link to="../">home</Link>
+                    <Link to="../login">log in</Link>
                 </div>
             </div>
             <div className="h-screen flex items-center justify-center">
@@ -268,7 +273,7 @@ function Signup() {
                             <option value="zimbabwean">Zimbabwean</option>
                         </select>
                     </div>
-                    <div className='text-light-green'><span className='italic'>already</span> a member? log in</div>
+                    <div className='text-light-green'><span className='italic'>already</span> a member? <Link to="../login">log in</Link></div>
                     <div className='flex justify-center'>
                         <button className='bg-light-green text-brown p-2 rounded-lg font-bold' type='submit'>Sign up!</button>
                     </div>
